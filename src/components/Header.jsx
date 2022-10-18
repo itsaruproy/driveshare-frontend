@@ -22,8 +22,8 @@ const Header = () => {
                     </Text>
                 </Box>
                 <HStack spacing={'5'}>
-                    <Button>Log in</Button>
-                    <Button>Learn More</Button>
+                    <Button colorScheme={'teal'}>Log in</Button>
+                    <Button colorScheme={'purple'}>Learn More</Button>
                 </HStack>
             </Box>
         </Box>

@@ -25,7 +25,7 @@ const List = () => {
     return (
         <Box p="16px" w={'320px'} bg="gray.50" shadow={'lg'} rounded={'md'}>
             <Text mb={'10px'}>The Upload target description</Text>
-            <HStack>
+            <HStack justifyContent={'center'}>
                 <Button onClick={onRevokeHandler} colorScheme={'red'}>
                     Revoke Access
                 </Button>
@@ -40,7 +40,7 @@ const List = () => {
 const Lists = () => {
     return (
         <Box w={'full'} display="flex" justifyContent={'center'}>
-            <Flex gap={'12px'} direction={'column'}>
+            <Flex gap={'12px'} justifyContent={'center'} direction={'column'}>
                 <List />
                 <List />
                 <List />
