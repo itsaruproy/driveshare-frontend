@@ -4,6 +4,7 @@ import Lists from './components/Lists'
 import Header from './components/Header'
 import Guest from './components/Guest'
 import AddNewList from './components/AddNewList'
+import Upload from './components/Upload'
 
 const App = () => {
     return (
@@ -11,7 +12,8 @@ const App = () => {
             <Header />
             {/* <Lists /> */}
             {/* <Guest /> */}
-            <AddNewList />
+            {/* <AddNewList /> */}
+            <Upload />
         </Box>
     )
 }
