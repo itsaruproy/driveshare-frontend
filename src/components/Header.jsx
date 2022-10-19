@@ -1,5 +1,13 @@
 import React from 'react'
-import { Box, Text, Button, HStack } from '@chakra-ui/react'
+import {
+    Box,
+    Text,
+    Button,
+    HStack,
+    Icon,
+    Link as ChakraLink,
+} from '@chakra-ui/react'
+import { FaGithub } from 'react-icons/fa'
 const Header = () => {
     return (
         <Box
@@ -23,7 +31,18 @@ const Header = () => {
                 </Box>
                 <HStack spacing={'5'}>
                     <Button colorScheme={'teal'}>Log in</Button>
-                    <Button colorScheme={'purple'}>Learn More</Button>
+                    <ChakraLink
+                        isExternal
+                        href="https://www.github.com/itsaruproy"
+                        style={{ textDecoration: 'none' }}
+                    >
+                        <Button colorScheme={'blackAlpha'}>
+                            <HStack>
+                                <Icon as={FaGithub} />
+                                <Text>@itsaruproy</Text>
+                            </HStack>
+                        </Button>
+                    </ChakraLink>
                 </HStack>
             </Box>
         </Box>

@@ -39,7 +39,7 @@ const List = () => {
 
 const Lists = () => {
     return (
-        <Box w={'full'} display="flex" justifyContent={'center'}>
+        <Box mt={'16px'} w={'full'} display="flex" justifyContent={'center'}>
             <Flex gap={'12px'} justifyContent={'center'} direction={'column'}>
                 <List />
                 <List />
