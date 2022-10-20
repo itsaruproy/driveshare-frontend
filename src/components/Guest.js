@@ -44,7 +44,7 @@ const Guest = () => {
             </Box>
             <Box>
                 <ChakraLink
-                    href="https://www.youtube.com/watch?v=_X7lGKZrQKA&list=RDDrs55HB_fo0&index=9"
+                    href="#"
                     isExternal
                     style={{ textDecoration: 'none' }}
                 >

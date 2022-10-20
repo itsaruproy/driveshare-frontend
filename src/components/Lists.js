@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Box, Flex, HStack } from '@chakra-ui/react'
 import { connect } from 'react-redux'
-import { fetchLinks } from '../actions/'
+import { fetchLinks } from '../actions'
 import List from './List'
 import NewListButton from './NewListButton'
 
