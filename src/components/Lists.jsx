@@ -1,53 +1,70 @@
-import React from 'react'
-import { Box, Flex, Text, Button, HStack } from '@chakra-ui/react'
-import { useToast } from '@chakra-ui/toast'
+import React, { Component } from 'react'
+import { Box, Flex, HStack } from '@chakra-ui/react'
+import { connect } from 'react-redux'
+import { fetchLinks } from '../actions/'
+import List from './List'
+import NewListButton from './NewListButton'
 
-const List = () => {
-    const toast = useToast()
-    const onClickHandler = () => {
-        toast({
-            title: 'Link copied to Clipboard',
-            status: 'success',
-            duration: 2000,
-            isClosable: true,
+class Lists extends Component {
+    componentDidMount() {
+        console.log('Component mounted')
+        this.props.fetchLinks()
+    }
+
+    renderLists() {
+        const ListsReducer = this.props.Lists
+        if (Object.keys(ListsReducer).length === 0) return null
+
+        let listArray = []
+
+        for (let key in ListsReducer) {
+            if (ListsReducer.hasOwnProperty(key)) {
+                listArray.push({
+                    _id: ListsReducer[key]._id,
+                    linkID: ListsReducer[key].linkID,
+                    folderID: ListsReducer[key].folderID,
+                    targetName: ListsReducer[key].targetName,
+                })
+            }
+        }
+
+        return listArray.map(list => {
+            return (
+                <List
+                    key={list._id}
+                    targetName={list.targetName}
+                    linkID={list.linkID}
+                    _id={list._id}
+                />
+            )
         })
     }
 
-    const onRevokeHandler = () => {
-        toast({
-            title: 'Access Revoked Successfully',
-            status: 'success',
-            duration: 2000,
-            isClosable: true,
-        })
+    render() {
+        return (
+            <Box
+                mt={'16px'}
+                w={'full'}
+                display="flex"
+                justifyContent={'center'}
+            >
+                <Flex
+                    gap={'12px'}
+                    justifyContent={'center'}
+                    direction={'column'}
+                >
+                    <HStack mx={'auto'}>
+                        <NewListButton />
+                    </HStack>
+                    {this.renderLists()}
+                </Flex>
+            </Box>
+        )
     }
-
-    return (
-        <Box p="16px" w={'320px'} bg="gray.50" shadow={'lg'} rounded={'md'}>
-            <Text mb={'10px'}>The Upload target description</Text>
-            <HStack justifyContent={'center'}>
-                <Button onClick={onRevokeHandler} colorScheme={'red'}>
-                    Revoke Access
-                </Button>
-                <Button onClick={onClickHandler} colorScheme={'purple'}>
-                    Copy Link
-                </Button>
-            </HStack>
-        </Box>
-    )
 }
 
-const Lists = () => {
-    return (
-        <Box mt={'16px'} w={'full'} display="flex" justifyContent={'center'}>
-            <Flex gap={'12px'} justifyContent={'center'} direction={'column'}>
-                <List />
-                <List />
-                <List />
-                <List />
-            </Flex>
-        </Box>
-    )
+const mapStateToProps = state => {
+    return { Lists: state.lists }
 }
 
-export default Lists
+export default connect(mapStateToProps, { fetchLinks })(Lists)
