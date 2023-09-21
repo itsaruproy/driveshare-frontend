@@ -30,7 +30,7 @@ const List = props => {
 
     const copyLink = () => {
         navigator.clipboard.writeText(
-            `http://localhost:3000/upload/${props.linkID}`
+            `${window.location.origin}/upload/${props.linkID}`
         )
         toast({
             title: 'Link copied to Clipboard',
