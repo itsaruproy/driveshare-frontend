@@ -72,18 +72,18 @@ const Header = props => {
                             Log in
                         </Button>
                     )}
-                    <ChakraLink
-                        isExternal
-                        href="https://www.github.com/itsaruproy"
-                        style={{ textDecoration: 'none' }}
-                    >
-                        <Button colorScheme={'blackAlpha'}>
-                            <HStack>
-                                <Icon as={FaGithub} />
-                                <Text>@itsaruproy</Text>
-                            </HStack>
-                        </Button>
-                    </ChakraLink>
+                    // <ChakraLink
+                    //     isExternal
+                    //     href="https://www.github.com/itsaruproy"
+                    //     style={{ textDecoration: 'none' }}
+                    // >
+                    //     <Button colorScheme={'blackAlpha'}>
+                    //         <HStack>
+                    //             <Icon as={FaGithub} />
+                    //             <Text>@itsaruproy</Text>
+                    //         </HStack>
+                    //     </Button>
+                    // </ChakraLink>
                 </HStack>
             </Box>
         </Box>
